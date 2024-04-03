@@ -1,5 +1,5 @@
 <template>
-  <div class="military-card">
+  <div class="military-card" :id="cardId">
     <div class="military-card__rank">
       {{ military.rank }}
     </div>
@@ -16,12 +16,19 @@
 </template>
   
 <script>
+import {getHash} from "@/utils/hash";
+
 export default {
   name: 'MilitaryItem',
   props: {
     military: {
       type: Object,
       required: true
+    }
+  },
+  computed: {
+    cardId () {
+      return getHash(this.military);
     }
   }
 }

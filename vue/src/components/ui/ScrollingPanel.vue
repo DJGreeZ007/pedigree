@@ -2,6 +2,9 @@
   <div class="scrolling-menu">
     <div v-for="(section, index) in sections" :key="index">
       <button class="scrolling-menu__btn" @click="() => scrollToSection(section.id)">{{ section.title }}</button>
+      <div v-for="(subSection, index) in section.subSections" :key="index">
+        <div class="scrolling-menu__sub_item" @click="() => scrollToSection(subSection.id)">{{subSection.title}}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -39,6 +42,15 @@ export default {
     cursor: pointer;
     font-weight: 600;
     font-size:16px;
+  }
+
+  &__sub_item {
+    background-color: #45475F00;
+    border: none;
+    padding: 8px 12px 8px 20px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size:14px;
   }
 }
 

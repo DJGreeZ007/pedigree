@@ -1,5 +1,5 @@
 <template>
-  <div class="wedding-card">
+  <div class="wedding-card" :id="cardId">
     <div class="wedding-card__header">{{ fullName }}</div>
     <div class="wedding-card__grey-txt">
       {{ wedding.startDate }}<template v-if="wedding.endDate"> - {{ wedding.endDate }}</template>
@@ -10,6 +10,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import { formatPersonName } from '@/services/formatPersonName'
+import {getHash} from "@/utils/hash";
 
 export default {
   name: 'WeddingItem',
@@ -31,6 +32,9 @@ export default {
         return formatPersonName(this.getPartner, {short: true, access: this.needHide})
       }
       return ''
+    },
+    cardId () {
+      return getHash(this.wedding);
     }
   }
 }
