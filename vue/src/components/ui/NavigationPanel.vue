@@ -70,7 +70,7 @@ export default {
       'setCenter'
     ]),
     saveId () {
-      this.setCenter(this.id);
+      this.setCenter(this.id)
     },
     deletePersonInButton () {
       this.$confirm('Действительно хотите удалить профиль? Это действие невозможно будет отменить', 'Удаление', {
@@ -84,7 +84,7 @@ export default {
           type: 'success',
           message: 'Удаление выполнено'
         })
-        this.$router.push({ name: this.$routes.HOME });
+        this.$router.push({ name: this.$routes.HOME })
       })
       .catch(() => {
         this.$message({

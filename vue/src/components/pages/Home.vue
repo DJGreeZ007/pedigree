@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import PageLayout from '../parts/PageLayout'
+import PageLayout from '@/components/parts/PageLayout'
 import { helpModal } from "@/mixins/modals"
 import { mapGetters } from 'vuex'
 
@@ -34,7 +34,7 @@ export default {
     }
   },
   mounted () {
-    this.redirectToDefaultPersonPage();
+    this.redirectToDefaultPersonPage()
   }
 }
 </script>

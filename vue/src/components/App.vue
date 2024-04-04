@@ -24,17 +24,17 @@ export default {
       timer: null
     }
   },
-  mounted() {
-    this.resetTimer();
+  mounted () {
+    this.resetTimer()
   },
   methods: {
-    resetTimer() {
+    resetTimer () {
       this.isActive = true
       if (this.timer) {
         clearTimeout(this.timer)
       }
       this.timer = setTimeout(() => {
-        this.isActive = false;
+        this.isActive = false
       }, 5 * 60 * 1000)
     },
   },

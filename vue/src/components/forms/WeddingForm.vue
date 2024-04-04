@@ -108,6 +108,12 @@ export default {
         ...param
       })
     },
+    validate () {
+      if (!this.partnerId && !this.startDate && !this.endDate) {
+        return 'Необходимо заполнить все поля формы свадьбы.';
+      }
+      return null;
+      },
     fullName (partner) {
       if (partner) {
         return formatPersonName(partner, { short: false, access: this.needHide })

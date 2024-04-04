@@ -55,7 +55,7 @@ export default {
     }
   },
   methods: {
-    moveSvg() {
+    moveSvg () {
       const [width, height] = [...this.params]
       const time = performance.now() * 0.2
       const rebound = Math.floor(time / width) + Math.floor(time / height)

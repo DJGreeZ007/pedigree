@@ -21,9 +21,9 @@
 </template>
 
 <script>
-import FeedbackForm from '../forms/FeedbackForm.vue'
-import PageLayout from '../parts/PageLayout.vue'
-import SimpleButton from '../ui/SimpleButton.vue'
+import FeedbackForm from '@/components/forms/FeedbackForm.vue'
+import PageLayout from '@/components/parts/PageLayout.vue'
+import SimpleButton from '@/components/ui/SimpleButton.vue'
 import axios from 'axios'
 
 export default {

@@ -49,6 +49,12 @@ export default {
         ...this.value,
         ...param
       })
+    },
+    validate () {
+      if (!this.child) {
+        return 'Необходимо заполнить поле формы детей.';
+      }
+      return null;
     }
   }
 }

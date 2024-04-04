@@ -53,7 +53,7 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import PageLayout from '@/components/parts/PageLayout.vue'
-import CryptoJS from 'crypto-js';
+import CryptoJS from 'crypto-js'
 import { decryptPersons } from '@/utils/decrypt'
 
 
@@ -99,10 +99,10 @@ export default {
       return "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify({
         persons: this.getAllPersons.map(person => {
           if (this.getAccess && person.access && this.jwtToken) {
-            const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(person), this.jwtToken).toString();
-            return { data: encryptedData };
+            const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(person), this.jwtToken).toString()
+            return { data: encryptedData }
           } else {
-            return person;
+            return person
           }
         }),
         access: this.getAccess,
@@ -123,18 +123,18 @@ export default {
       const reader = new FileReader()
       reader.onload = (e) => {
         try {
-          const jsonData = JSON.parse(e.target.result);
+          const jsonData = JSON.parse(e.target.result)
           if (jsonData.persons) {
             this.setPersons(decryptPersons(jsonData.persons, this.jwtToken))
           }
-          this.setAccess(jsonData.access);
-          this.setMode(jsonData.mode);
+          this.setAccess(jsonData.access)
+          this.setMode(jsonData.mode)
         }
         catch (e){
           console.log(e)
         }
-      };
-      reader.readAsText(file.raw);
+      }
+      reader.readAsText(file.raw)
     },
   }
 }

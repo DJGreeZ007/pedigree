@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import ModalComponent from "@/components/parts/Modal";
+import ModalComponent from "@/components/parts/Modal"
 
 export default {
   name: "HelpModal",

@@ -9,7 +9,7 @@ function getStoredMode() {
 
 function getStoredToken() {
   const token = localStorage.getItem('token')
-  return token !== null ? JSON.parse(token) : '';
+  return token !== null ? JSON.parse(token) : ''
 }
 
 export default {
@@ -36,8 +36,8 @@ export default {
       localStorage.setItem('access', JSON.stringify(payload))
     },
     setToken: (state, payload) => {
-      state.token = payload;
-      localStorage.setItem('token', JSON.stringify(payload));
+      state.token = payload
+      localStorage.setItem('token', JSON.stringify(payload))
     }
   },
 
@@ -47,8 +47,8 @@ export default {
       return resolve()
     }),
     setToken: ({ commit }, payload) => new Promise((resolve) => {
-      commit('setToken', payload);
-      return resolve();
+      commit('setToken', payload)
+      return resolve()
     }),
     setMode: (store, payload) => new Promise((resolve) => {
       store.commit('setMode', payload)

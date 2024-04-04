@@ -4,7 +4,10 @@
       {{ military.rank }}
     </div>
     <div class="military-card__date">
-      {{ military.startDate }}<template v-if="military.endDate"> - {{ military.endDate }}</template>
+      {{ military.startDate }}
+      <template v-if="military.endDate"> 
+        - {{ military.endDate }}
+      </template>
     </div>
     <div class="military-card__type">
       {{ military.type }}

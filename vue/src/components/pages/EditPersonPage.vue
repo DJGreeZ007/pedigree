@@ -1,7 +1,7 @@
 <template>
   <PageLayout>
     <section class="p-16">
-      <PersonForm v-model="form" />
+      <PersonForm v-model="form" ref="personForm" />
       <SimpleButton 
         class ="person-page__btn" 
         type="primary" 
@@ -22,10 +22,10 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import PageLayout from '../parts/PageLayout.vue'
-import PersonForm from '../forms/PersonForm.vue'
+import PageLayout from '@/components/parts/PageLayout.vue'
+import PersonForm from '@/components/forms/PersonForm.vue'
 import { emptyPerson } from '@/services/person'
-import SimpleButton from '../ui/SimpleButton.vue'
+import SimpleButton from '@/components/ui/SimpleButton.vue'
 
 export default {
   name: 'EditPersonPage',
@@ -72,8 +72,12 @@ export default {
       'editPerson'
     ]),
     editPersonHandler () {
-      this.editPerson(this.form)
-      this.goBack()
+      const isEmptyH = this.$refs.personForm.checkEmptyForms();
+      if (!isEmptyH) {
+        return;
+      }
+      this.editPerson(this.form);
+      this.$router.push({ name: "PERSON"});
     },
     cancel () {
       this.goBack()

@@ -66,50 +66,50 @@ export default {
   },
   computed: {
     place: {
-      get() {
+      get () {
         return this.value.place
       },
-      set(value) {
+      set (value) {
         this.emitChange({ place: value })
       }
     },
     organization: {
-      get() {
+      get () {
         return this.value.organization
       },
-      set(value) {
+      set (value) {
         this.emitChange({ organization: value })
       }
     },
     startDate: {
-      get() {
+      get () {
         return this.value.startDate
       },
-      set(value) {
+      set (value) {
         this.emitChange({ startDate: value })
       }
     },
     endDate: {
-      get() {
+      get () {
         return this.value.endDate
       },
-      set(value) {
+      set (value) {
         this.emitChange({ endDate: value })
       }
     },
     position: {
-      get() {
+      get () {
         return this.value.position
       },
-      set(value) {
+      set (value) {
         this.emitChange({ position: value })
       }
     },
     description: {
-      get() {
+      get () {
         return this.value.description
       },
-      set(value) {
+      set (value) {
         this.emitChange({ description: value })
       }
     },
@@ -141,6 +141,12 @@ export default {
         ...this.value,
         ...param
       })
+    },
+    validate () {
+      if (!this.place && !this.organization && !this.startDate && !this.endDate && !this.position && !this.description) {
+        return 'Необходимо заполнить все поля формы работы.';
+      }
+      return null;
     }
   }
 }

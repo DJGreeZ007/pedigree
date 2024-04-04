@@ -3,7 +3,8 @@
     <div class="education-card__header">
       <h2 class="education-card__institution">{{ education.name }}</h2>
       <div class="education-card__dates">
-        {{ formatDate(education.startDate) }} - {{ education.endDate ? formatDate(education.endDate) : 'настоящее время' }}
+        {{ formatDate(education.startDate) }} 
+        - {{ education.endDate ? formatDate(education.endDate) : 'настоящее время' }}
       </div>
     </div>
 

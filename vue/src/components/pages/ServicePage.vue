@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import PageLayout from '../parts/PageLayout.vue'
-import ServiceComponent from '../ui/service/ServiceComponent.vue';
+import PageLayout from '@/components/parts/PageLayout.vue'
+import ServiceComponent from '@/components/ui/service/ServiceComponent.vue'
 
 export default {
   name: 'ServicePage',

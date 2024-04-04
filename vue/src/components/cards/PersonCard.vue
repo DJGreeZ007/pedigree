@@ -5,11 +5,17 @@
     </div>
     <div>
       <div class="person-card__fullname">
-        <h1 id="info-section">{{ fullName }}</h1>
+        <h1 id="info-section">
+          {{ fullName }}
+        </h1>
         <div class="person-card__status-indicator" :class="genderClass"></div>
       </div>
-      <span class="person-card__dates">{{ birthDate }}</span>
-      <span v-if="dieDate" class="person-card__dates"> - {{ dieDate }}</span>
+      <span class="person-card__dates">
+        {{ birthDate }}
+      </span>
+      <span v-if="dieDate" class="person-card__dates"> 
+        - {{ dieDate }}
+      </span>
 
       <h2 id="parents-section">Родители</h2>
       <div class="person-card__information-text">
@@ -89,13 +95,13 @@
 </template>
 
 <script>
-import WeddingItem from '../parts/WeddingItem.vue'
-import EducationItem from '../parts/EducationItem.vue'
-import MilitaryItem from '../parts/MilitaryItem.vue'
-import PhotoPreview from '../ui/PhotoPreview.vue'
+import WeddingItem from '@/components/parts/WeddingItem.vue'
+import EducationItem from '@/components/parts/EducationItem.vue'
+import MilitaryItem from '@/components/parts/MilitaryItem.vue'
+import PhotoPreview from '@/components/ui/PhotoPreview.vue'
 import RelateButton from '@/components/ui/RelateButton.vue'
-import PopOver from '../ui/PopOver.vue'
-import PersonPreviewCard from './PersonPreviewCard.vue'
+import PopOver from '@/components/ui/PopOver.vue'
+import PersonPreviewCard from '@/components/cards/PersonPreviewCard.vue'
 import { formatPersonName } from '@/services/formatPersonName'
 import { mapGetters } from 'vuex'
 import { maskDatetime, defaultImage } from '@/utils/mask'
@@ -153,7 +159,7 @@ export default {
       }
       return this.getPersonsByIds(this.person.children.map(i => i.child)).filter((person) => {
         return !person.removed
-      });
+      })
     },
     dieDate () {
       if (!this.person.dieDate) {

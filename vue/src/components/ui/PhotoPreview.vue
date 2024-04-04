@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     imageSource () {
-      return this.photo || require('@/assets/photo-default.jpg');
+      return this.photo || require('@/assets/photo-default.jpg')
     }
   }
 }

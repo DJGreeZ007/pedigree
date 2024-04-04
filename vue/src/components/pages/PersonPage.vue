@@ -10,9 +10,9 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import PageLayout from '../parts/PageLayout.vue'
+import PageLayout from '@/components/parts/PageLayout.vue'
 import PersonCard from '@/components/cards/PersonCard.vue'
-import NavigationPanel from '../ui/NavigationPanel.vue'
+import NavigationPanel from '@/components/ui/NavigationPanel.vue'
 import ScrollingPanel from '@/components/ui/ScrollingPanel.vue'
 import { emptyPerson } from '@/services/person'
 

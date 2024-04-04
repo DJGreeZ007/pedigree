@@ -18,8 +18,8 @@
 </template>
   
 <script>
-import PhotoPreview from '../ui/PhotoPreview.vue'
-import { formatPersonName } from '@/services/formatPersonName';
+import PhotoPreview from '@/components/ui/PhotoPreview.vue'
+import { formatPersonName } from '@/services/formatPersonName'
 
 export default {
   name: 'WidePersonCard',
@@ -35,7 +35,7 @@ export default {
   computed: {
     fullName () {
       if (this.person) {
-        return formatPersonName(this.person, {});
+        return formatPersonName(this.person, {})
       }
       return ''
     },

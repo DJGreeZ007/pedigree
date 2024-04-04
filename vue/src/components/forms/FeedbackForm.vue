@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import SimpleButton from '../ui/SimpleButton.vue'
+import SimpleButton from '@/components/ui/SimpleButton.vue'
 
 export default {
   name: 'FeedbackForm',

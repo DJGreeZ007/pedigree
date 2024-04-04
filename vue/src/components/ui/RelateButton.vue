@@ -14,9 +14,9 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import { maskFio } from '@/utils/mask';
-import { formatPersonName } from '@/services/formatPersonName';
+import { mapGetters } from 'vuex'
+import { maskFio } from '@/utils/mask'
+import { formatPersonName } from '@/services/formatPersonName'
 
 export default {
   name: 'RelateButton',
@@ -41,10 +41,10 @@ export default {
     isMale () {
       return this.person.gender === 'male'
     },
-    needHide(){
+    needHide () {
       return this.person.access && this.getAccess
     },
-    secondNameFormatted(){
+    secondNameFormatted () {
       if (!this.person) {
         return ''
       }

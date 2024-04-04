@@ -125,6 +125,12 @@ export default {
         ...this.value,
         ...param
       })
+    },
+    validate () {
+      if (!this.type && !this.rank && !this.startDate && !this.endDate && !this.description) {
+         return 'Необходимо заполнить все поля военной формы.';
+       }
+      return null;
     }
   }
 }

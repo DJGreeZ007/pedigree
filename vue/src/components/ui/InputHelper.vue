@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     selectOption(value) {
-      this.$emit('select', value);
+      this.$emit('select', value)
     }
   }
 }
