@@ -24,6 +24,12 @@ export default {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' })
       }
+    },
+    addSubSection(sectionId, subSection) {
+      const section = this.sections.find(sec => sec.id === sectionId);
+      if (section) {
+        section.subSections.push(subSection);
+      }
     }
   }
 }

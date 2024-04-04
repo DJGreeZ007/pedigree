@@ -1,6 +1,6 @@
 <template>
   <PageLayout>
-    <ScrollingPanel :sections="sections" />
+    <ScrollingPanel :sections="sections" ref="scrollingPanelRef" />
     <NavigationPanel />
     <section class="p-16">
       <PersonCard :person="person" />
@@ -15,7 +15,6 @@ import PersonCard from '@/components/cards/PersonCard.vue'
 import NavigationPanel from '../ui/NavigationPanel.vue'
 import ScrollingPanel from '@/components/ui/ScrollingPanel.vue'
 import { emptyPerson } from '@/services/person'
-import {getHash} from "@/utils/hash";
 
 export default {
   name: 'PersonPage',
@@ -48,29 +47,42 @@ export default {
     },
     id () {
       return this.$route.params.id
+    },
+    subSections() {
+      return {
+        "weddings-section": this.person.weddings.map((wedding, idx) => ({
+          id: this.generateSubSectionId("wedding", idx),
+          title: `Брачный союз ${idx + 1}`
+        })),
+        "military-section": this.person.militaries.map((military, idx) => ({
+          id: this.generateSubSectionId("military", idx),
+          title: `Военная служба ${idx + 1}`
+        }))
+      };
+    },
+    scrollingPanel() {
+      return this.$refs.scrollingPanelRef;
     }
   },
   mounted() {
-    const person = this.person;
-    console.log(person);
-    this.addSubSection("weddings-section", person.weddings, "Брачный союз")
-    this.addSubSection("military-section", person.militaries, "Военная служба")
-    // this.addSubSection("work-section", person.militaries, "Работа")
-    // this.addSubSection("education-section", person.militaries, "Образование")
+    const scrollingPanel = this.scrollingPanel;
+    this.addSubSections(scrollingPanel);
   },
   methods: {
-    generateSubSectionId(subSectionData) {
-      return getHash(subSectionData);
+    generateSubSectionId(sectionName, idx) {
+      return `${sectionName}-${idx}`;
     },
-    addSubSection(sectionId, subObjects, title) {
-      const section = this.sections.find(section => section.id === sectionId);
-      if (section) {
-        subObjects.forEach((i, idx) => {
-          const newId = this.generateSubSectionId(i);
-          section.subSections.push({id: newId, title: `${title} ${idx + 1}`});
-        })
-      }
+    addSubSections(scrollingPanel) {
+      this.sections.forEach(section => {
+        const subSections = this.subSections[section.id];
+        if (subSections && subSections.length > 0) {
+          subSections.forEach(subSection => {
+            scrollingPanel.addSubSection(section.id, subSection);
+          });
+        }
+      });
     }
   }
 }
 </script>
+

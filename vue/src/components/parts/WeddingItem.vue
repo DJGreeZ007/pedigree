@@ -10,7 +10,6 @@
 <script>
 import { mapGetters } from 'vuex'
 import { formatPersonName } from '@/services/formatPersonName'
-import {getHash} from "@/utils/hash";
 
 export default {
   name: 'WeddingItem',
@@ -34,7 +33,7 @@ export default {
       return ''
     },
     cardId () {
-      return getHash(this.wedding);
+      return `wedding-${this.$vnode.key}`;
     }
   }
 }

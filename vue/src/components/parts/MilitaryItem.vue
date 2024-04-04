@@ -16,7 +16,6 @@
 </template>
   
 <script>
-import {getHash} from "@/utils/hash";
 
 export default {
   name: 'MilitaryItem',
@@ -24,11 +23,11 @@ export default {
     military: {
       type: Object,
       required: true
-    }
+    },
   },
   computed: {
     cardId () {
-      return getHash(this.military);
+      return `military-${this.$vnode.key}`;
     }
   }
 }
