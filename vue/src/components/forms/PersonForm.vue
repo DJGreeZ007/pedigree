@@ -496,22 +496,30 @@ export default {
       })
     },
     checkEmptyForms() {
+      const militaryForm = this.$refs.militaryForm || [];
+      const educationForm = this.$refs.educationForm || [];
+      const childForm = this.$refs.childForm || [];
+      const weddingForm = this.$refs.weddingForm || [];
+      const workForm = this.$refs.workForm || [];
       const forms = [
-        ...this.$refs.militaryForm,
-        ...this.$refs.educationForm,
-        ...this.$refs.childForm,
-        ...this.$refs.weddingForm,
-        ...this.$refs.workForm
+        ...militaryForm,
+        ...educationForm,
+        ...childForm,
+        ...weddingForm,
+        ...workForm
       ]
+      let result = false
       forms.forEach(i => {
         const r = i.validate()
         if (r) {
+          result = true
           this.$notify({
             message: 'Ошибка: ' + r,
             type: 'error'
-          });
+          })
         }
       })
+      return result
     },   
     formatDate (date) {
       if (date) {

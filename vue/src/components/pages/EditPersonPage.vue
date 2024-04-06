@@ -73,8 +73,8 @@ export default {
     ]),
     editPersonHandler () {
       const isEmptyH = this.$refs.personForm.checkEmptyForms();
-      if (!isEmptyH) {
-        return;
+      if (isEmptyH) {
+        return
       }
       this.editPerson(this.form);
       this.$router.push({ name: "PERSON"});

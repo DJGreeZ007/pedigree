@@ -9,6 +9,9 @@ const initialState = [
     secondName: 'Иванов',
     firstName: 'Иван',
     patronymicName: 'Иванович',
+    midenName: '',
+    birthDate: '',
+    dieDate: '',
     gender: 'male',
     military: [
       {
@@ -51,14 +54,33 @@ const initialState = [
       }
     ],
     photo: require('@/assets/logo.png'),
+    children: [{child:'2'}],
+    educations: [],
+    weddings: [],
+    works: [],
+    militaries: [],
+    access: null,
+    removed: null
   },
   {
     id: '2',
     secondName: 'Петров',
     firstName: 'Петр',
     patronymicName: 'Иванович',
+    midenName: '',
+    birthDate: '',
+    dieDate: '',
     gender: 'male',
-    weddings: []
+    biography: '',
+    activity: '',
+    photo: '',
+    children: [],
+    educations: [],
+    weddings: [],
+    works: [],
+    militaries: [],
+    access: null,
+    removed: null
   }
 ]
 
