@@ -3,7 +3,7 @@
     <div v-for="(section, index) in sections" :key="index">
       <button class="scrolling-menu__btn" @click="() => scrollToSection(section.id)">{{ section.title }}</button>
       <div v-for="(subSection, index) in section.subSections" :key="index">
-        <div class="scrolling-menu__sub_item" @click="() => scrollToSection(subSection.id)">{{subSection.title}}</div>
+        <div class="scrolling-menu__sub-item" @click="() => scrollToSection(subSection.id)">{{subSection.title}}</div>
       </div>
     </div>
   </div>
@@ -23,12 +23,6 @@ export default {
       const element = document.getElementById(sectionId)
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' })
-      }
-    },
-    addSubSection(sectionId, subSection) {
-      const section = this.sections.find(sec => sec.id === sectionId);
-      if (section) {
-        section.subSections.push(subSection);
       }
     }
   }
@@ -50,7 +44,7 @@ export default {
     font-size:16px;
   }
 
-  &__sub_item {
+  &__sub-item {
     background-color: #45475F00;
     border: none;
     padding: 8px 12px 8px 20px;

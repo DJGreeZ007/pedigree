@@ -59,6 +59,7 @@
       <div v-if="person.educations && person.educations.length" class="custom-grid">
         <EducationItem
           v-for="(education, index) in person.educations"
+          :id="'education-' + index"
           :key="index"
           :education="education"
         />
@@ -71,6 +72,7 @@
       <div v-if="person.weddings && person.weddings.length" class="custom-grid">
         <WeddingItem
           v-for="(wedding, index) in person.weddings"
+          :id="'wedding-' + index"
           :key="index"
           :wedding="wedding"
         />
@@ -83,8 +85,22 @@
       <div v-if="person.militaries && person.militaries.length" class="custom-grid">
         <MilitaryItem
           v-for="(military, index) in person.militaries"
+          :id="'military-' + index"
           :key="index"
           :military="military"
+        />
+      </div>
+      <div v-else class="person-card__information-text">
+        Информации нет
+      </div>
+
+      <h2 id="work-section">Работа</h2>
+      <div v-if="person.works && person.works.length" class="custom-grid">
+        <WorkItem
+            v-for="(work, index) in person.works"
+            :id="'work-' + index"
+            :key="index"
+            :work="work"
         />
       </div>
       <div v-else class="person-card__information-text">
@@ -97,6 +113,7 @@
 <script>
 import WeddingItem from '@/components/parts/WeddingItem.vue'
 import EducationItem from '@/components/parts/EducationItem.vue'
+import WorkItem from "@/components/parts/WorkItem"
 import MilitaryItem from '@/components/parts/MilitaryItem.vue'
 import PhotoPreview from '@/components/ui/PhotoPreview.vue'
 import RelateButton from '@/components/ui/RelateButton.vue'
@@ -109,6 +126,7 @@ import { maskDatetime, defaultImage } from '@/utils/mask'
 export default {
   name: 'PersonCard',
   components: {
+    WorkItem,
     EducationItem,
     WeddingItem,
     MilitaryItem,

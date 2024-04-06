@@ -1,37 +1,42 @@
 <template>
-  <div class="military-card">
-    <div class="military-card__rank">
-      {{ military.rank }}
+  <div class="work-card">
+    <div class="work-card__organization">
+      {{ work.organization }}
     </div>
-    <div class="military-card__date">
-      {{ military.startDate }}
-      <template v-if="military.endDate"> 
-        - {{ military.endDate }}
+    <div class="work-card__place">
+      {{ work.place }}
+    </div>
+    <div class="work-card__date">
+      {{ work.startDate }}
+      <template v-if="work.endDate">
+        - {{ work.endDate }}
       </template>
     </div>
-    <div class="military-card__type">
-      {{ military.type }}
+    <div class="work-card__position">
+      {{ work.position }}
     </div>
-    <div class="military-card__description">
-      {{ military.description }}
+    <div class="work-card__description">
+      {{ work.description }}
     </div>
   </div>
 </template>
-  
+
 <script>
+
 export default {
-  name: 'MilitaryItem',
+  name: 'WorkItem',
   props: {
-    military: {
+    work: {
       type: Object,
       required: true
-    }
+    },
+
   }
 }
 </script>
-  
-<style scoped lang ="less">
-.military-card {
+
+<style scoped lang="less">
+.work-card {
   border-radius: 24px;
   background-color: #f5f5f5;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -43,7 +48,7 @@ export default {
   font-family: 'Inter', sans-serif;
   white-space: normal;
 
-  &__rank {
+  &__organization {
     color: #000000;
     font-weight: 700;
   }
@@ -53,7 +58,12 @@ export default {
     font-size: 14px;
   }
 
-  &__type {
+  &__place {
+    color: #000000;
+    font-weight: 700;
+  }
+
+  &__position {
     color: #000000;
     font-weight: 700;
   }
